@@ -8,7 +8,7 @@ st.set_page_config(page_title="Decor In - Interior Designs", layout="wide")
 # Logo Header
 col1, col2 = st.columns([1, 5])
 with col1:
-    st.image("images/Logo.png", width=180)
+    st.image("images/Logo.PNG", width=180)
 with col2:
     st.markdown("""
         <h1 style='margin-bottom: 0;'>
