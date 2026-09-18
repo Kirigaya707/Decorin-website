@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Decor In | Premium Interior Design{% endblock %}</title>
+    <meta name="description" content="Decor In creates bespoke modular kitchens and home interiors across Kolkata.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="{{ url_for('main.home') }}" class="logo-link"><span class="gold">Decor</span> <span class="red">In</span><small>The Ultimate Choice</small></a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <nav class="nav-links">
+                <a href="{{ url_for('main.home') }}">Home</a>
+                <a href="{{ url_for('main.services') }}">Services</a>
+                <a href="{{ url_for('main.gallery') }}">Portfolio</a>
+                <a href="{{ url_for('main.catalogue') }}">Catalogue</a>
+                <a href="tel:9830072946" class="btn-call"><i class="fa-solid fa-phone"></i> 9830072946</a>
+            </nav>
+        </div>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div><h3>Decor In</h3><p>Over 20 years of architectural expertise creating bespoke modular kitchens and home interiors across Kolkata.</p></div>
+            <div><h3>Material Standards</h3><p><i class="fa-solid fa-check gold"></i> Century Club Prime Ply, 30-year warranty</p><p><i class="fa-solid fa-check gold"></i> Hettich soft-close hardware</p></div>
+            <div><h3>Direct Contact</h3><p><i class="fa-solid fa-phone gold"></i> +91 9830072946</p><p><i class="fa-solid fa-envelope gold"></i> decorinkitchen1@gmail.com</p><p><i class="fa-solid fa-location-dot gold"></i> Kolkata, West Bengal</p></div>
+        </div>
+        <div class="copyright">&copy; 2026 Decor In Interior Design Studio. All Rights Reserved.</div>
+    </footer>
+    <a href="https://wa.me/919830072946?text=Hi%20Decor%20In,%20I%20would%20like%20to%20schedule%20a%20free%20site%20measurement." class="float-whatsapp" target="_blank" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

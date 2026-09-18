@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if slides %}
+<section class="hero-slider">
+    {% for slide in slides %}
+    <div class="hero-slide {% if loop.first %}active{% endif %}" style="background-image: url('{{ url_for('static', filename='images/' + slide.image) }}');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content"><p class="eyebrow">DECOR IN INTERIORS</p><h1>{{ slide.title }}</h1><p>{{ slide.subtitle }}</p><div class="hero-actions">
+            {% if slide.btn_type == 'whatsapp' %}<a href="https://wa.me/919830072946?text=Hi%20Decor%20In,%20I%20want%20a%20free%20site%20measurement." class="btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Free Measurement</a>
+            {% else %}<a href="tel:9830072946" class="btn-call"><i class="fa-solid fa-phone"></i> Call 9830072946</a>{% endif %}
+        </div></div>
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
+
+{% if services %}
+<section class="section"><div class="container"><p class="eyebrow red">WHAT WE CREATE</p><h2 class="section-title">Rooms with a point of view.</h2><div class="grid-3">
+    {% for service in services %}<article class="card"><div class="card-icon"><i class="fa-solid {{ service.icon }}"></i></div><h3>{{ service.title }}</h3><p>{{ service.description }}</p></article>{% endfor %}
+</div></div></section>
+{% endif %}
+
+{% if gallery %}
+<section class="section gallery-section"><div class="container"><p class="eyebrow red">SELECTED WORK</p><h2 class="section-title">Made for the way you live.</h2><div class="gallery-grid">
+    {% for item in gallery %}<figure><img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.title }}"><figcaption><strong>{{ item.title }}</strong><span>{{ item.category|title }}</span></figcaption></figure>{% endfor %}
+</div></div></section>
+{% endif %}
+
+{% if not slides and not services and not gallery %}
+<section class="section empty-page"><div class="container"><p class="eyebrow red">DECOR IN</p><h1>Let's shape your next room.</h1><p>Tell us what you are imagining and we will help turn it into a considered, buildable design.</p><a class="btn-whatsapp" href="https://wa.me/919830072946" target="_blank">Start a conversation</a></div></section>
+{% endif %}
+{% endblock %}
